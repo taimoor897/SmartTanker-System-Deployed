@@ -72,7 +72,7 @@ export default function BookingModule() {
           time
         });
 
-       const order = res.data.orders[0];
+       const order = res.data.order;
 
 setRequests((prev) => [order, ...prev]);
 
