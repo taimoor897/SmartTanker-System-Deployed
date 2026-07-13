@@ -18,7 +18,7 @@ export default function Dashboard() {
   const [connected, setConnected] = useState(true);
   const [usageData, setUsageData] = useState([]);
   const [notifications, setNotifications] = useState([]);
-  const [userEmail, setUserEmail] = useState('');
+  const [userName, setUserName] = useState('');
   const [darkMode, setDarkMode] = useState(false);
 
   const navigate = useNavigate();
@@ -94,7 +94,7 @@ Please help me.`
 
   useEffect(() => {
     const currentUser = JSON.parse(localStorage.getItem('user'));
-    setUserEmail(currentUser?.email || '');
+    setUserName(currentUser?.name || '');
 
     const fetchDashboard = async () => {
       try {
@@ -251,7 +251,11 @@ const toggleDarkMode = () => {
           <h1>
             SmartTanker&nbsp;<i className="fa-solid fa-truck moving-icon"></i>
           </h1>
-          {userEmail && <p className="user-email">{userEmail}</p>}
+            {userName && (
+  <p className="user-email">
+    👋 Welcome, {userName}
+  </p>
+)}
         </div>
 
 
