@@ -6,6 +6,9 @@ import { useNavigate } from 'react-router-dom';
 import './Dashboard.css'; // use your dashboard CSS for consistency
 import axios from "axios";
 
+const API =
+  process.env.REACT_APP_BACKEND || "http://localhost:5000";
+
 // Truck icon for the map
 const truckIcon = L.icon({
   iconUrl: 'https://www.citypng.com/public/uploads/preview/delivery-freight-black-truck-icon-download-png-701751695035832ecrif00wda.png',
@@ -75,8 +78,8 @@ useEffect(() => {
     try {
 
       const res = await fetch(
-        `http://localhost:5000/api/customer/orders/${user._id}`
-      );
+  `${API}/api/customer/orders/${user._id}`
+);
 
       const orders = await res.json();
 
@@ -161,8 +164,8 @@ useEffect(() => {
     if (!destination) return;
 
     const res = await fetch(
-        'http://localhost:5000/api/tanker-location'
-    );
+  `${API}/api/tanker-location`
+);
 
     const data = await res.json();
 
@@ -255,7 +258,7 @@ const submitRating = async () => {
   try {
 
     await axios.post(
-      "http://localhost:5000/api/rating/submit",
+  `${API}/api/rating/submit`,
       {
         orderId: currentOrder._id,
         providerId: currentOrder.providerId,
