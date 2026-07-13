@@ -21,7 +21,7 @@ const app = express();
 app.use(cors({
   origin: [
     "http://localhost:3000",
-    "https://your-frontend-name.onrender.com"
+    "https://smarttanker-system-deployed-1.onrender.com"
   ],
   credentials: true
 }));
