@@ -18,9 +18,16 @@ const app = express();
 // MIDDLEWARE
 // =========================
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    "http://localhost:3000",
+    "https://your-frontend-name.onrender.com"
+  ],
+  credentials: true
+}));
 app.use(bodyParser.json());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 
 // =========================
