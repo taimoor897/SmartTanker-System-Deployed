@@ -136,6 +136,8 @@ export default function Signup() {
     padding: '8px 12px',
     borderRadius: '6px',
     cursor: 'pointer',
+    display: 'block',
+margin: '10px auto 0',
    
     
     
