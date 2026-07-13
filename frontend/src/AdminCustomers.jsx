@@ -7,9 +7,11 @@ export default function AdminCustomers() {
   const [search, setSearch] = useState('');
 
   const navigate = useNavigate();
+  const API =
+  process.env.REACT_APP_BACKEND || "http://localhost:5000";
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/admin/users/customer')
+    fetch(`${API}/api/admin/users/customer`)
       .then(res => res.json())
       .then(data => setCustomers(data))
       .catch(err => console.log(err));
