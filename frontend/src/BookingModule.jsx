@@ -12,7 +12,8 @@ export default function BookingModule() {
   const navigate = useNavigate();
 
   const user = JSON.parse(localStorage.getItem('user'));
-  const API = 'http://localhost:5000';
+  const API =
+  process.env.REACT_APP_BACKEND || "http://localhost:5000";
 
   // =========================
   // ✅ LOAD CUSTOMER BOOKINGS
@@ -71,19 +72,19 @@ export default function BookingModule() {
           time
         });
 
-       const order = res.data.order;
+       const order = res.data.orders[0];
 
-        setRequests((prev) => [order, ...prev]);
+setRequests((prev) => [order, ...prev]);
 
-        setDate('');
-        setTime('');
+setDate('');
+setTime('');
 
-        navigate('/payment', {
-          state: {
-            orderId: order._id,
-            amount: order.waterQuantity * 100
-          }
-        });
+navigate('/payment', {
+  state: {
+    orderId: order._id,
+    amount: order.waterQuantity * 100
+  }
+});
 
       } catch (err) {
         console.log(
