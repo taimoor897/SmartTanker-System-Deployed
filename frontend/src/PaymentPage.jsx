@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function PaymentPage() {
-  const API = 'http://localhost:5000';
+ const API =
+  process.env.REACT_APP_BACKEND || "http://localhost:5000";
 
   const location = useLocation();
   const navigate = useNavigate();
