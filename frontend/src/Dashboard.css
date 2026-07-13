@@ -1542,29 +1542,6 @@ transform:scale(.95);
 
 
 
-.dashboard-cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
-}
-
-.tracking-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:20px;
-}
-
-.leaflet-container{
-    width:100%;
-    height:500px;
-}
-
-.dashboard-card,
-.dashboard-card1{
-    width:100%;
-    box-sizing:border-box;
-}
-
 
 
 
