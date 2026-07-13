@@ -21,13 +21,15 @@ export default function AdminComplaints() {
 
 
   const navigate = useNavigate();
+  const API =
+  process.env.REACT_APP_BACKEND || "http://localhost:5000";
 
   const [search, setSearch] = useState('');
 
   const user = JSON.parse(localStorage.getItem('user') || '{}');
 
   const loadComplaints = async () => {
-    const res = await fetch('http://localhost:5000/api/complaints');
+    const res = await fetch(`${API}/api/complaints`);
     const data = await res.json();
 
     setComplaints(data);
@@ -39,8 +41,8 @@ export default function AdminComplaints() {
 
     setStats({ total, open, resolved });
     const statsRes = await fetch(
-      'http://localhost:5000/api/admin/stats'
-    );
+  `${API}/api/admin/stats`
+);
     
     const userData = await statsRes.json();
     
@@ -57,7 +59,7 @@ export default function AdminComplaints() {
   }, []);
 
   const resolveComplaint = async (id) => {
-    await fetch(`http://localhost:5000/api/complaints/resolve/${id}`, {
+    await fetch(`${API}/api/complaints/resolve/${id}`, {
       method: 'PUT'
     });
 
