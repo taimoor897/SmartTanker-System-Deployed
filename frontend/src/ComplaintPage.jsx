@@ -8,6 +8,8 @@ export default function ComplaintPage() {
 
   const { orderId } = location.state || {};
   const user = JSON.parse(localStorage.getItem('user'));
+  const API =
+  process.env.REACT_APP_BACKEND || "http://localhost:5000";
 
   const [type, setType] = useState('Late Delivery');
   const [description, setDescription] = useState('');
@@ -15,7 +17,7 @@ export default function ComplaintPage() {
   const submitComplaint = async () => {
     try {
       const res = await fetch(
-        'http://localhost:5000/api/complaints/create',
+         `${API}/api/complaints/create`,
         {
           method: 'POST',
           headers: {
