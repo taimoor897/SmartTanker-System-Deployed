@@ -25,7 +25,8 @@ const [gpsStatus,setGpsStatus] = useState("Waiting for GPS...");
 const [myLocation,setMyLocation] = useState(null);
 const [isAvailable, setIsAvailable] = useState(true);
 
-const API = "http://localhost:5000";
+const API =
+  process.env.REACT_APP_BACKEND || "http://localhost:5000";
 
 const storedUser = localStorage.getItem("user");
 const user = storedUser ? JSON.parse(storedUser) : null;
