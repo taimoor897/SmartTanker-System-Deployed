@@ -47,7 +47,7 @@ const [currentOrder, setCurrentOrder] = useState(null);
 const [review,setReview]=useState("");
 
   const navigate = useNavigate();
-  const [userName, setUserName] = useState('');
+  const [userEmail, setUserEmail] = useState('');
   const [lastUpdated, setLastUpdated] = useState('');
   const user = JSON.parse(localStorage.getItem('user'));
 
@@ -286,11 +286,9 @@ const submitRating = async () => {
           <h1>
             SmartTanker&nbsp;<i className="fa-solid fa-truck moving-icon"></i>
           </h1>
-          {userName && (
-  <p className="user-email">
-    👋 Welcome, {userName}
-  </p>
-)}
+          {userEmail && <p className="user-email">{userEmail}</p>}
+        
+
         </div>
         <div className="header-right">
           <button className="logout-btn" onClick={handleLogout}>
