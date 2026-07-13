@@ -5,6 +5,9 @@ import './Signup.css';
 export default function Signup() {
   const navigate = useNavigate();
 
+  const API =
+  process.env.REACT_APP_BACKEND || "http://localhost:5000";
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -34,7 +37,7 @@ export default function Signup() {
     }
 
     try {
-      const res = await fetch('http://localhost:5000/api/auth/signup', {
+      const res = await fetch(`${API}/api/auth/signup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
