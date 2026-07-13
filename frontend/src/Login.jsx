@@ -9,6 +9,8 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
+  const API =
+  process.env.REACT_APP_BACKEND || 'http://localhost:5000';
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -16,7 +18,7 @@ export default function Login() {
     setMessage('');
 
     try {
-      const res = await fetch('http://localhost:5000/api/auth/login', {
+      const res = await fetch(`${API}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
