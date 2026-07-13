@@ -286,7 +286,11 @@ const submitRating = async () => {
           <h1>
             SmartTanker&nbsp;<i className="fa-solid fa-truck moving-icon"></i>
           </h1>
-          {userEmail && <p className="user-email">{userEmail}</p>}
+          {userName && (
+  <p className="user-email">
+    👋 Welcome, {userName}
+  </p>
+)}
         </div>
         <div className="header-right">
           <button className="logout-btn" onClick={handleLogout}>
