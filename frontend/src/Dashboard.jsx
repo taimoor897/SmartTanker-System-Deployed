@@ -282,10 +282,9 @@ const toggleDarkMode = () => {
         </div>
         
       </header>
-         <button
-  className="logout-btn"
+        <button
+  className="logout-btn theme-btn"
   onClick={toggleDarkMode}
-  style={{ marginRight: '1200px' }}
 >
   {darkMode ? '☀️ Light Mode' : '🌙 Dark Mode'}
 </button>
