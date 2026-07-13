@@ -8,6 +8,9 @@ import './Dashboard.css';
 import ChatbotWidget from './ChatbotWidget';
 import WeatherWidget from './WeatherWidget';
 
+const API =
+  process.env.REACT_APP_BACKEND || "http://localhost:5000";
+
 export default function Dashboard() {
   const [dashboard, setDashboard] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -43,8 +46,8 @@ Please help me.`
 
 
     const res = await axios.get(
-      `http://localhost:5000/api/customer/orders/${user._id}`
-    );
+  `${API}/api/customer/orders/${user._id}`
+);
 
 
     const acceptedOrder = res.data.find(
