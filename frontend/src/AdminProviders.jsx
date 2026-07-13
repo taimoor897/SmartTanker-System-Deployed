@@ -5,9 +5,11 @@ import './Dashboard.css';
 export default function AdminProviders() {
   const [providers, setProviders] = useState([]);
   const navigate = useNavigate();
+  const API =
+  process.env.REACT_APP_BACKEND || "http://localhost:5000";
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/admin/users/provider')
+    fetch(`${API}/api/admin/users/provider`)
       .then(res => res.json())
       .then(data => setProviders(data))
       .catch(err => console.log(err));
